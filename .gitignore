@@ -33,6 +33,7 @@ env/
 .idea/
 *.swp
 *.swo
+.claude/
 
 # Test files
 test_output/

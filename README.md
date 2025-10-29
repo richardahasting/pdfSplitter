@@ -12,21 +12,60 @@ A simple Python tool to split large PDF files into multiple smaller files. Suppo
 
 ## Installation
 
-1. Clone or download this repository
-2. Create virtual environment and install dependencies:
+### Option 1: Install as a command-line tool (Recommended)
+
+Install directly from the repository:
 
 ```bash
+pip install git+https://github.com/richardahasting/pdfSplitter.git
+```
+
+Or clone and install locally:
+
+```bash
+git clone https://github.com/richardahasting/pdfSplitter.git
+cd pdfSplitter
+pip install .
+```
+
+After installation, you can use `pdfsplitter` command directly:
+
+```bash
+pdfsplitter input.pdf --pages 10
+```
+
+### Option 2: Development installation
+
+For development or if you want to modify the code:
+
+```bash
+git clone https://github.com/richardahasting/pdfSplitter.git
+cd pdfSplitter
+pip install -e .
+```
+
+### Option 3: Manual installation (no pip install)
+
+If you prefer to run the script directly without installing:
+
+```bash
+git clone https://github.com/richardahasting/pdfSplitter.git
+cd pdfSplitter
 python3 -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
+python pdfsplitter.py input.pdf
 ```
 
 ## Usage
 
+**Note**: If you installed using Option 1 or 2, use `pdfsplitter` command. If using Option 3 (manual), use `python pdfsplitter.py`.
+
 ### Basic Usage (Default: 10 pages per file)
 
 ```bash
-python pdfsplitter.py input.pdf
+pdfsplitter input.pdf
+# Or if running manually: python pdfsplitter.py input.pdf
 ```
 
 This splits `input.pdf` into files with 10 pages each (default).
@@ -35,37 +74,37 @@ This splits `input.pdf` into files with 10 pages each (default).
 
 ```bash
 # Split into 20-page files
-python pdfsplitter.py input.pdf --pages 20
+pdfsplitter input.pdf --pages 20
 
 # Split into 5-page files
-python pdfsplitter.py input.pdf --pages 5
+pdfsplitter input.pdf --pages 5
 ```
 
 ### Split into N Files
 
 ```bash
 # Split into exactly 5 files (pages distributed evenly)
-python pdfsplitter.py input.pdf --files 5
+pdfsplitter input.pdf --files 5
 
 # Split into 10 files
-python pdfsplitter.py input.pdf --files 10
+pdfsplitter input.pdf --files 10
 ```
 
 ### Specify Output Directory
 
 ```bash
 # Save output to specific directory
-python pdfsplitter.py input.pdf --pages 10 -o output/
+pdfsplitter input.pdf --pages 10 -o output/
 
 # Save to subdirectory
-python pdfsplitter.py input.pdf --files 3 -o split_pdfs/
+pdfsplitter input.pdf --files 3 -o split_pdfs/
 ```
 
 ## Examples
 
 **Example 1**: Split 100-page PDF into 10-page files
 ```bash
-python pdfsplitter.py document.pdf --pages 10
+pdfsplitter document.pdf --pages 10
 # Creates: document_part_001.pdf (pages 1-10)
 #          document_part_002.pdf (pages 11-20)
 #          ...
@@ -74,7 +113,7 @@ python pdfsplitter.py document.pdf --pages 10
 
 **Example 2**: Split 100-page PDF into 5 equal files
 ```bash
-python pdfsplitter.py document.pdf --files 5
+pdfsplitter document.pdf --files 5
 # Creates: document_part_001.pdf (pages 1-20)
 #          document_part_002.pdf (pages 21-40)
 #          document_part_003.pdf (pages 41-60)
@@ -84,7 +123,7 @@ python pdfsplitter.py document.pdf --files 5
 
 **Example 3**: Split with custom output directory
 ```bash
-python pdfsplitter.py large_document.pdf --pages 15 -o output/
+pdfsplitter large_document.pdf --pages 15 -o output/
 # Creates files in the 'output/' directory
 ```
 

@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pdfsplitter"
+version = "1.0.0"
+description = "A simple tool to split large PDF files into multiple smaller files"
+readme = "README.md"
+requires-python = ">=3.7"
+license = {file = "LICENSE"}
+authors = [
+    {name = "Richard Hasting", email = "richardahasting@users.noreply.github.com"}
+]
+keywords = ["pdf", "split", "pdf-tools", "document-processing"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Office/Business",
+    "Topic :: Utilities",
+]
+dependencies = [
+    "pypdf>=4.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/richardahasting/pdfSplitter"
+Repository = "https://github.com/richardahasting/pdfSplitter"
+Issues = "https://github.com/richardahasting/pdfSplitter/issues"
+
+[project.scripts]
+pdfsplitter = "pdfsplitter:main"
+
+[tool.setuptools]
+py-modules = ["pdfsplitter"]
